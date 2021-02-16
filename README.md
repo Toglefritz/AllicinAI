@@ -19,7 +19,8 @@ You can use gpt-2-simple to retrain a model using a GPU in [this Colaboratory no
 
 This repository can be cloned into your Google Drive account via Colab:
 
-```# Connect to Google Drive
+```
+# Connect to Google Drive
 from google.colab import drive
 drive.mount("/content/drive")
 from pathlib import Path
@@ -33,7 +34,8 @@ Path("gpt2finetune").mkdir(parents=True, exist_ok=True)
 
 You will also need to install the corresponding TensorFlow for your system (e.g. `tensorflow` or `tensorflow-gpu`). **TensorFlow 2.0 is currently not supported** and the package will throw an assertion if loaded, so TensorFlow 1.15 is recommended:
 
-```%tensorflow_version 1.x
+```
+%tensorflow_version 1.x
 # !pip -q install tensorflow==1.15 && pip -q install tensorflow-gpu==1.15
 # !pip -q install 'tensorflow-estimator<1.15.0rc0,>=1.14.0rc0' --force-reinstall
 import tensorflow
@@ -41,7 +43,9 @@ import tensorflow
 
 You can check the TensorFlow version to ensure you successfully installed 1.15:
 
-``` print(tensorflow.__version__) ```
+``` 
+print(tensorflow.__version__) 
+```
 
 ## Usage
 
