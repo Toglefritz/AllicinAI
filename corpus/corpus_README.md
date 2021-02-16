@@ -1,0 +1,1 @@
+The corpus directory stores the .txt file used to train the GPT-2 model.
