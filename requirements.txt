@@ -3,4 +3,4 @@ requests
 tqdm
 numpy
 toposort
-/gpt-2-simple
+gpt_2_simple
