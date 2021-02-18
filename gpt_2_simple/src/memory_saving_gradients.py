@@ -125,7 +125,7 @@ def gradients(ys, xs, grad_ys=None, checkpoints='collection', **kwargs):
                 # get all bottlenecks in the graph
                 bottleneck_ts = []
                 for t in ts:
-                    b = set(ge.get_backward_walk_ops(t.op, inclusive=True, within_ops=fwd_ops))
+                    b = set(ge.tensorflow.python.ops.op_selector.get_backward_walk_ops(t.op, inclusive=True, within_ops=fwd_ops))
                     f = set(ge.get_forward_walk_ops(t.op, inclusive=False, within_ops=fwd_ops))
                     # check that there are not shortcuts
                     b_inp = set([inp for op in b for inp in op.inputs]).intersection(ts_all)
