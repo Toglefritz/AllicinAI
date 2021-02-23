@@ -8,6 +8,8 @@ import csv
 
 
 def load_dataset(enc, path, combine):
+    print("dataset path: " + path)
+
     paths = []
     if os.path.isfile(path):
         # Simple file
@@ -26,10 +28,14 @@ def load_dataset(enc, path, combine):
     for path in tqdm.tqdm(paths):
         if path.endswith('.npz'):
             # Pre-encoded
+            print("dataset identified as pre-encoded")
+
             with np.load(path) as npz:
                 for item in npz.files:
                     token_chunks.append(npz[item])
         elif path.endswith('.csv'):
+            print("dataset identified as CSV")
+
             start_token = "<|startoftext|>"
             end_token = "<|endoftext|>"
             with open(path, 'r', encoding='utf8', errors='ignore') as fp:
@@ -39,6 +45,8 @@ def load_dataset(enc, path, combine):
                     raw_text += start_token + row[0] + end_token + "\n"
         else:
             # Plain text
+            print("dataset identified as plain text")
+
             with open(path, 'r', encoding='utf8', errors='ignore') as fp:
                 raw_text += fp.read()
             if len(raw_text) >= combine:
